@@ -270,6 +270,8 @@ storage:
 # 使用 AI 大模型对推送内容进行深度分析
 # 支持 OpenAI、Anthropic、DeepSeek等兼容接口
 # ===============================================================
+
+
 ai_analysis:
   enabled: true                    # 是否启用 AI 分析
 
@@ -279,8 +281,8 @@ ai_analysis:
   #   - openai: OpenAI
   #   - gemini: Google Gemini
   #   - custom: 自定义 OpenAI 兼容接口（需填写完整 base_url）
-  provider: "deepseek"              # 提供商
-  api_key: ""                       # API Key（建议使用环境变量 AI_API_KEY）
+  provider: "${AI_PROVIDER}"               # 提供商
+   api_key: "${AI_API_KEY}"                # API Key（建议使用环境变量 AI_API_KEY）
 
   model: "deepseek-chat"            # 模型名称
                                     # DeepSeek: deepseek-chat, deepseek-reasoner
