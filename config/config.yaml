@@ -15,43 +15,48 @@ app:
 # 2. 数据源 - 热榜平台
 # ===============================================================
 platforms:
-  - id: "toutiao"
-    name: "今日头条"
+  # 🔥 核心流量平台
+  - id: "weibo"
+    name: "微博热搜"
+  - id: "zhihu"
+    name: "知乎热榜"
+  - id: "douyin"
+    name: "抖音热榜"
+  - id: "xiaohongshu-hot"     # ✅ 正确的小红书热榜ID
+    name: "小红书热榜"
+  - id: "bilibili-hot-search"
+    name: "B站热搜"
+
+  # 📊 搜索与资讯平台
   - id: "baidu"
     name: "百度热搜"
+  - id: "toutiao"
+    name: "今日头条"
+
+  # 💼 财经与专业视角
   - id: "wallstreetcn-hot"
     name: "华尔街见闻"
-  - id: "thepaper"
-    name: "澎湃新闻"
-  - id: "bilibili-hot-search"
-    name: "bilibili 热搜"
   - id: "cls-hot"
     name: "财联社热门"
-  - id: "ifeng"
-    name: "凤凰网"
+  - id: "thepaper"
+    name: "澎湃新闻"
+
+  # 🗣️ 社区与长尾讨论
   - id: "tieba"
     name: "贴吧"
-  - id: "weibo"
-    name: "微博"
-  - id: "douyin"
-    name: "抖音"
-  - id: "zhihu"
-    name: "知乎"
-
+  - id: "ifeng"
+    name: "凤凰网"
 
 # ===============================================================
-# 3. 数据源 - RSS 订阅
+# 3. 数据源 - RSS 订阅（聚焦变现、AI、趋势）
 # ===============================================================
 rss:
   enabled: true
   freshness_filter:
     enabled: true
-    max_age_days: 3
-  feeds:
-    - id: "linuxdo"
-      name: "Linux.do"
-      url: "https://linux.do/latest.rss"
+    max_age_days: 2
 
+  feeds:
     - id: "ruanyifeng"
       name: "阮一峰的网络日志"
       url: "http://www.ruanyifeng.com/blog/atom.xml"
@@ -59,6 +64,21 @@ rss:
     - id: "xugj_blog"
       name: "高效码农"
       url: "https://www.xugj520.cn/feed"
+
+    - id: "linuxdo"
+      name: "Linux.do"
+      url: "https://linux.do/latest.rss"
+
+    # 使用 RSSHub 代理获取蜗牛教授博客（若部署环境可访问 rsshub.app）
+    - id: "woniu_blog"
+      name: "蜗牛教授"
+      url: "https://rsshub.app/wordpress/www.woniu996.com"
+
+    # 国际AI商业动态（高价值）
+    - id: "bens_bites"
+      name: "Ben's Bites"
+      url: "https://bensbites.beehiiv.com/feed"
+
 
 
 # ===============================================================
