@@ -146,14 +146,20 @@ storage:
 # 7. AI 分析功能（✅ 已正确配置 Moonshot / Kimi）
 # ===============================================================
 
+
 ai_analysis:
   enabled: true
-  provider: "custom"                     # ← 关键！用 custom
-  api_key: "${AI_API_KEY}"
-  model: "moonshot-v1-8k"
-  base_url: "https://api.moonshot.cn/v1" # ← 正确 base
+  provider: "openai"                    # ← 关键！必须写 openai
+  api_key: "${AI_API_KEY}"              # 你的 Moonshot API Key（从 Secrets 注入）
+  model: "moonshot-v1-8k"               # Moonshot 支持的模型名（完全兼容）
+  base_url: "https://api.moonshot.cn/v1" # Moonshot 的 OpenAI 兼容 API 根地址
   timeout: 90
   push_mode: "both"
+  
+
+
+
+  
 
   
   
