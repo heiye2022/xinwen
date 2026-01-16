@@ -277,7 +277,7 @@ ai_analysis:
   provider: "${AI_PROVIDER}"        # ← 会读取 Secrets 中的 "moonshot"
   api_key: "${AI_API_KEY}"          # ← 会读取 Moonshot 的 API Key
   model: "moonshot-v1-8k"           # ✅ Kimi 常用模型（也可选 moonshot-v1-32k）
-  base_url: "https://api.moonshot.cn/v1"  # ⚠️ 必须指定 Moonshot 的 API 地址！
+  base_url: ""  # ⚠️ 必须指定 Moonshot 的 API 地址！
 
   timeout: 90                       # 请求超时（秒）
 
