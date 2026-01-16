@@ -273,26 +273,11 @@ storage:
 
 
 ai_analysis:
-  enabled: true                    # 是否启用 AI 分析
-
-  # AI 提供商配置
-  # 支持的提供商:
-  #   - deepseek: DeepSeek（默认）
-  #   - openai: OpenAI
-  #   - gemini: Google Gemini
-  #   - custom: 自定义 OpenAI 兼容接口（需填写完整 base_url）
-  provider: "${AI_PROVIDER}"               # 提供商
-  api_key: "${AI_API_KEY}"                # API Key（建议使用环境变量 AI_API_KEY）
-
-  model: "moonshot-v1-8k"             # 模型名称
-                                    # DeepSeek: deepseek-chat, deepseek-reasoner
-                                    # OpenAI: o3-mini, o1, gpt-4o
-                                    # Gemini: gemini-2.5-flash, gemini-2.5-pro
-
-   base_url: "https://api.moonshot.cn/v1"                      # 完整 API 地址（可选）
-                                    # 留空则使用提供商默认端点
-                                    # 其他提供商必须填写完整 URL
-                                    # 示例: https://api.openai.com/v1/chat/completions
+  enabled: true
+  provider: "${AI_PROVIDER}"        # ← 会读取 Secrets 中的 "moonshot"
+  api_key: "${AI_API_KEY}"          # ← 会读取 Moonshot 的 API Key
+  model: "moonshot-v1-8k"           # ✅ Kimi 常用模型（也可选 moonshot-v1-32k）
+  base_url: "https://api.moonshot.cn/v1"  # ⚠️ 必须指定 Moonshot 的 API 地址！
 
   timeout: 90                       # 请求超时（秒）
 
