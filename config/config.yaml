@@ -22,8 +22,10 @@ platforms:
     name: "知乎热榜"
   - id: "douyin"
     name: "抖音热榜"
-  - id: "xiaohongshu-hot"     # ✅ 正确的小红书热榜ID
-    name: "小红书热榜"
+  - id: "bilibili-hot-search"
+    name: "bilibili 热搜"
+  - id: "cls-hot"
+    name: "财联社热门" 
   - id: "bilibili-hot-search"
     name: "B站热搜"
 
