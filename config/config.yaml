@@ -146,14 +146,14 @@ storage:
 # 7. AI 分析功能（✅ 已正确配置 Moonshot / Kimi）
 # ===============================================================
 
-
 ai_analysis:
   enabled: true
-  provider: "${AI_PROVIDER}"
-  api_key: "${AI_API_KEY}"
+  provider: "deepseek"          # ← 直接写死，不要用 ${}
+  api_key: "${AI_API_KEY}"      # 这个可以保留（如果 workflow 注入 env）
   model: "deepseek-chat"
   timeout: 90
   push_mode: "both"
+
   max_news_for_analysis: 50
   include_rss: false
   prompt_file: "ai_analysis_prompt.txt"
