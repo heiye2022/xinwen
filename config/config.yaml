@@ -80,9 +80,9 @@ rss:
   # - 正整数：覆盖全局设置，只推送此天数内的文章
   # - 0：禁用此频道的新鲜度过滤，推送所有文章
   feeds:
-    - id: "lindu"
-      name: "lingdu"
-      url: "https://linux.do/"
+    - id: "linuxdo"
+      name: "Linux.do"
+      url: "https://linux.do/latest.rss"
       # max_age_days: 1               # 示例：只推送1天内的文章
 
     - id: "ruanyifeng"
@@ -90,9 +90,9 @@ rss:
       url: "http://www.ruanyifeng.com/blog/atom.xml"
       # max_age_days: 7               # 示例：推送7天内的文章（更新较慢的博客）
     
-    - id: xugj_blog          # 👈 唯一标识：建议用英文或拼音，不能重复
-      name: 高效码农
-      url: "https://www.xugj520.cn/"
+    - id: "xugj_blog"
+      name: "高效码农"
+      url: "https://www.xugj520.cn/feed"
       # max_age_days: 1                  
 
     # 自定义源示例
@@ -169,7 +169,7 @@ notification:
     once_per_day: true                # true=窗口内只推送一次，false=窗口内每次执行都推送
 
   # 📋 独立展示区配置（可选功能）
-  # 用途：将指定平台的完整热榜/RSS 单独展示，不受关键词过滤影响
+  # 用途：将指定平台的<tool_call>/RSS 单独展示，不受关键词过滤影响
   # 适用场景：
   #   - 想完整查看某个平台的热榜排名
   #   - RSS 源内容较少，希望全部展示而非只显示关键词匹配的
