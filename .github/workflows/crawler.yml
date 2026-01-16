@@ -7,7 +7,7 @@ on:
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     #
     # 🔄 运行机制 / How it works:
-    #    - 每个周期为 30 天，届时自动停止 (修改了时长)
+    #    - 每个周期为 30 天，届时自动停止
     #    - 运行 "Check In" 会重置周期（重新开始 30 天倒计时，而非累加）
     #    - Each cycle is 30 days, then auto-stops
     #    - "Check In" resets the cycle (restarts 30-day countdown, not cumulative)
@@ -28,14 +28,14 @@ on:
     #
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     #
-    # 📝 修改运行时间：每 2 小时运行一次
-    # 📝 Change time: Run every 2 hours
+    # 📝 修改运行时间：只改第一个数字（0-59），表示每小时第几分钟运行
+    # 📝 Change time: Only modify the first number (0-59) = minute of each hour
     #
     # 示例 / Examples:
-    #   "15 */2 * * *"     → 每 2 小时的第 15 分钟运行
-    #   "0 */2 * * *"     → 每 2 小时整点运行
+    #   "15 * * * *"     → 每小时第15分钟 / minute 15 every hour
+    #   "30 0-14 * * *"  → 北京时间 8:00-22:00 每小时第30分钟 / Beijing 8am-10pm
     #
-    - cron: "0 */2 * * *"  # 👈 修改为每2小时运行一次
+    - cron: "33 * * * *"
 
   workflow_dispatch:
 
@@ -79,7 +79,7 @@ jobs:
             CURRENT_TIMESTAMP=$(date +%s)
             FIRST_RUN_TIMESTAMP=$(date -d "$FIRST_RUN_DATE" +%s)
             DIFF_SECONDS=$((CURRENT_TIMESTAMP - FIRST_RUN_TIMESTAMP))
-            LIMIT_SECONDS=2592000  # 👈 修改为 30 天的秒数 (30*24*60*60)
+            LIMIT_SECONDS=2592000  # 👈 已修改为 30 天（30*24*60*60）
 
             if [ $DIFF_SECONDS -gt $LIMIT_SECONDS ]; then
               echo "⚠️ 试用期已结束，请运行 'Check In' 签到续期"
@@ -154,7 +154,7 @@ jobs:
           # 通用Webhook配置
           GENERIC_WEBHOOK_URL: ${{ secrets.GENERIC_WEBHOOK_URL }}
           GENERIC_WEBHOOK_TEMPLATE: ${{ secrets.GENERIC_WEBHOOK_TEMPLATE }}
-          # AI 分析配置
+          # AI 分析配置 👇 已保留完整，确保能读取 Secrets
           AI_ANALYSIS_ENABLED: ${{ secrets.AI_ANALYSIS_ENABLED }}
           AI_API_KEY: ${{ secrets.AI_API_KEY }}
           AI_PROVIDER: ${{ secrets.AI_PROVIDER }}
