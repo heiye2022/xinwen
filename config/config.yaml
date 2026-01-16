@@ -175,9 +175,8 @@ ai_analysis:
   model: "deepseek-chat"
   timeout: 90
   push_mode: "both"
-
   max_news_for_analysis: 50
-  include_rss: false
+  include_rss: true
   prompt_file: "ai_analysis_prompt.txt"
   
 
